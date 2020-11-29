@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+            display: flex;
+
+        }
+
+        a {
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        #mymenu {
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Создать меню</h1>
+    <form name="formMenu">
+        <p>Пункты меню: <input type="text" size="50" name="elemMenu" value="Главная, О компании, Новости, Контакты"></p>
+        <p>Цвет текста: <input type="color" name="fColor" value="#FFFFFF"></p>
+        <p>Цвет фона: <input type="color" name="bColor" value="#203944"></p>
+        <p>Цвет hover: <input type="color" name="hColor" value="#103893"></p>
+        <p><input type="button" name="butt" value="Создать меню" onclick="menu()"> </p>
+
+    </form>
+
+    <style id="mystyle">
+
+    </style>
+
+    <p id="mymenu"></p>
+
+    <script>
+
+        function menu() {
+
+            elemMenu = formMenu.elemMenu.value;
+            fc = formMenu.fColor.value;
+            bc = formMenu.bColor.value;
+            hc = formMenu.hColor.value;
+
+            arrMenu = elemMenu.split(", ");
+
+            s = ''; st = '';
+
+            for (i = 0; i < arrMenu.length; i++) {
+                s += `<li><a href="#">${arrMenu[i]}</a></li>`
+            }
+
+            st = `a {color:${fc};background:${bc}} a:hover{background: ${hc}} `
+
+
+
+
+            mylist = `<ul>${s}</ul>`
+            mymenu.innerHTML = mylist;
+            mystyle.innerHTML = st;
+
+        }
+    </script>
+
+
+    <!-- <ul>
+        <li> <a href="#">Пункт 1</a></li>
+        <li><a href="#">Пункт 2</a></li>
+        <li><a href="#">Пункт 3</a></li>
+        <li><a href="#">Пункт 4</a></li> 
+    </ul> -->
+
+
+
+
+</body>
+
+</html>
